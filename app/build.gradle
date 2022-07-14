@@ -31,6 +31,14 @@ testing {
         }
     }
 }
+jar {
+  manifest {
+    attributes(
+      'Class-Path': configurations.runtimeClasspath.files.collect { it.getName() }.join(' '),
+      'Main-Class': 'ont777767ltd.twod.App'
+    )
+  }
+}
 
 application {
     // Define the main class for the application.

@@ -137,3 +137,39 @@ Untracked files:
 nothing added to commit but untracked files present (use "git add" to track)
 ```
 
+##  Runnable JAR
+
+Need to modify the build.gradle and add a manifest for the jar:
+
+```aidl
+$ vim app/build.gradle
+```
+add in 
+```aidl
+
++  34 jar {
++  35   manifest {
++  36     attributes(
++  37       'Class-Path': configurations.runtimeClasspath.files.collect { it.getName() }.join(' '),
++  38       'Main-Class': 'ont777767ltd.twod.App'
++  39     )
++  40   }
++  41 }
+
+```
+
+and then build:
+
+```aidl
+[~/projects/home/java/java2d]  (main) $ gradle jar
+
+BUILD SUCCESSFUL in 873ms
+2 actionable tasks: 2 up-to-date
+```
+
+and run:
+
+```aidl
+[~/projects/home/java/java2d]  (main) $ java -jar app/build/libs/app.jar
+Hello World!
+```
