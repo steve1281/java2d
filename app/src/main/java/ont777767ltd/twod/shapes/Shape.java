@@ -18,6 +18,11 @@ abstract public class Shape {
     protected String text=null;
     protected Color textColor= Color.BLACK;
 
+    public int hx0=0;
+    public int hy0=0;
+    public int hx1=0;
+    public int hy1=0; // hit box def;
+
     public abstract void draw();
 
     public void setG2D(Graphics2D g2d) {
@@ -95,6 +100,14 @@ abstract public class Shape {
 
     public Shape setTextColor(Color textColor) {
         this.textColor = textColor;
+        return this;
+    }
+
+    public Shape setHitbox(int x0, int y0, int x1,int y1) {
+        this.hx0 = x0;
+        this.hy0 = y0;
+        this.hx1 = x1;
+        this.hy1 = y1;
         return this;
     }
 }

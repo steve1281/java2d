@@ -174,19 +174,17 @@ and run:
 Hello World!
 ```
 
-## WINDOWS 11 Notes
-
-I dislike windows. Also, I found that the oracle jdk8 tried to use some links and such that confused poor gradle, so I uninstalled all my java, and then installed the openjdk.  In my case, I used jdk18.
-
+## Windows 11 Notes
 
 From stackoverflow (https://stackoverflow.com/questions/52511778/how-to-install-openjdk-11-on-windows)
 
-* Extract the zip file into a folder, e.g. C:\Program Files\Java\ and it will create a jdk-11 folder (where the bin folder is a direct sub-folder). You may need Administrator privileges to extract the zip file to this location.
-
-* Set a PATH:
-
 ```
+Extract the zip file into a folder, e.g. C:\Program Files\Java\ and it will create a jdk-11 folder (where the bin folder is a direct sub-folder). You may need Administrator privileges to extract the zip file to this location.
+
+Set a PATH:
+
 Select Control Panel and then System.
+
 Click Advanced and then Environment Variables.
 
 Add the location of the bin folder of the JDK installation to the PATH variable in System Variables.

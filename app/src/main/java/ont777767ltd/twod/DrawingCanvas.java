@@ -14,7 +14,7 @@ public class DrawingCanvas extends JComponent {
     private int width;
     private int height;
 
-    private ArrayList<Shape> shapes = new ArrayList<Shape>();
+    private ArrayList<Shape> shapes = ShapeList.getInstance().getShapes();
 
     public DrawingCanvas(int w, int h) {
         width = w;
@@ -32,7 +32,8 @@ public class DrawingCanvas extends JComponent {
                 .setTextColor(Color.BLACK));
         shapes.add(new Rect().setXY(50,75).setWH(100,125).setColor(new Color(100,149,237)));
         shapes.add(new Spiral().setFilled(false).setColor(Color.CYAN).setLayer(2000));
-        shapes.add(new Hexagon().setLayer(2000).setColor(Color.CYAN).setFilled(false).setXY(100,100).setWH(50,50).setText("This is a test"));
+        shapes.add(new Hexagon().setLayer(2000).setColor(Color.CYAN).setFilled(false).setXY(100,100).setWH(50,50).setText("This is a test").
+                setHitbox(50,50, 150, 150));
     }
 
     protected void backgroundFill(Graphics2D g2d) {
