@@ -10,7 +10,7 @@ will be included.
 Using gradle, create a simple application for building, runniing, testing and packaging.
 (My preference, at this time is gradle, although maven could also be used.)
 
-```aidl
+```
 $ gradle init
 [2] application
 [3] java
@@ -27,7 +27,7 @@ This will build a gradle based project, with a default `Hello World`
 
 ### Test the initial project
 
-```aidl
+```
 $ gradle run
 
 > Task :app:run
@@ -39,7 +39,7 @@ BUILD SUCCESSFUL in 2s
 
 and
 
-```aidl
+```
 [~/projects/home/java/2d]  $ gradle test
 
 BUILD SUCCESSFUL in 2s
@@ -58,7 +58,7 @@ I will need to create a JFrame. I'll need some UI elements.
 
 For now, create a basic structure with some simple shapes:
 
-```aidl
+```
 app/src/main
 ├── java
 │   └── ont777767ltd
@@ -83,7 +83,7 @@ app/src/main
 
 At this point, need to track changes and such.
 
-```aidl
+```
 git init
 ```
 
@@ -91,7 +91,7 @@ git init
 
 The default `.gitignore`  will be:
 
-```aidl
+```
 [~/projects/home/java/2d]  $ cat .gitignore
 # Ignore Gradle project-specific cache directory
 .gradle
@@ -105,7 +105,7 @@ so I added `.idea/`
 
 To check hhat will be added:
 
-```aidl
+```
 [~/projects/home/java/2d]  $ git status --untracked-files
 On branch master
 
@@ -141,11 +141,11 @@ nothing added to commit but untracked files present (use "git add" to track)
 
 Need to modify the build.gradle and add a manifest for the jar:
 
-```aidl
+```
 $ vim app/build.gradle
 ```
 add in 
-```aidl
+```
 
 +  34 jar {
 +  35   manifest {
@@ -160,7 +160,7 @@ add in
 
 and then build:
 
-```aidl
+```
 [~/projects/home/java/java2d]  (main) $ gradle jar
 
 BUILD SUCCESSFUL in 873ms
@@ -169,7 +169,36 @@ BUILD SUCCESSFUL in 873ms
 
 and run:
 
-```aidl
+```
 [~/projects/home/java/java2d]  (main) $ java -jar app/build/libs/app.jar
 Hello World!
 ```
+
+## WINDOWS 11 Notes
+
+I dislike windows. Also, I found that the oracle jdk8 tried to use some links and such that confused poor gradle, so I uninstalled all my java, and then installed the openjdk.  In my case, I used jdk18.
+
+
+From stackoverflow (https://stackoverflow.com/questions/52511778/how-to-install-openjdk-11-on-windows)
+
+* Extract the zip file into a folder, e.g. C:\Program Files\Java\ and it will create a jdk-11 folder (where the bin folder is a direct sub-folder). You may need Administrator privileges to extract the zip file to this location.
+
+* Set a PATH:
+
+```
+Select Control Panel and then System.
+Click Advanced and then Environment Variables.
+
+Add the location of the bin folder of the JDK installation to the PATH variable in System Variables.
+
+The following is a typical value for the PATH variable: C:\WINDOWS\system32;C:\WINDOWS;"C:\Program Files\Java\jdk-11\bin"
+
+Set JAVA_HOME:
+
+Under System Variables, click New.
+Enter the variable name as JAVA_HOME.
+Enter the variable value as the installation path of the JDK (without the bin sub-folder).
+Click OK.
+Click Apply Changes.
+```
+
