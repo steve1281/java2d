@@ -13,14 +13,24 @@ public class MyMouseListener implements MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent arg0) {
-        System.out.println(arg0.getX() +", "+ arg0.getY());
+        int x = arg0.getX();
+        int y = arg0.getY();
+        System.out.print(x +", "+ y + ": ");
+        // fetch the shapes
         ArrayList<Shape> shapes = ShapeList.getInstance().getShapes();
+        // for each shape, check it was clicked in its hitbox
         for (Shape s : shapes) {
-            if (s.hx0 < arg0.getX() && (s.hx0+s.hx1) > arg0.getX() && s.hy0 < arg0.getY() && (s.hy0+s.hy1 )> arg0.getY()) {
-                System.out.print("Ding.");
+            int hx0 = s.hx0;
+            int hx1 = s.hx0 + s.hx1; // hx1 is actually width (@todo: rename)
+            int hy0 = s.hy0;
+            int hy1 = s.hy0 + s.hy1; // hy1 is actually height (@todo: rename)
+
+            // simple bounds check
+            if (x > hx0 && x < hx1 && y>hy0 && y<hy1 ) {
+                System.out.println("Ding.");
             }
             else {
-                System.out.println(s.hx0+", "+ s.hy0 + " " + s.hx1+", "+s.hy1);
+                System.out.println(hx0+", "+ hy0 + " " + hx1+", "+hy1);
 
             }
 
