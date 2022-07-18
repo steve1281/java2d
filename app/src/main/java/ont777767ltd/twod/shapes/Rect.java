@@ -24,6 +24,10 @@ public class Rect extends Shape {
         Rectangle2D.Double r = new Rectangle2D.Double(x0,y0,w0,h0);
         g2d.setColor(this.getColor());
         g2d.fill(r);
+        if (hx0 != hx1) {
+            g2d.setColor(Color.YELLOW);
+            g2d.drawRect(hx0, hy0, hx1, hy1);
+        }
 
     }
 }

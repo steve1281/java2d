@@ -6,6 +6,7 @@ package ont777767ltd.twod;
 import ont777767ltd.twod.ui.MyMouseListener;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class App {
     public String getGreeting() {
@@ -24,6 +25,7 @@ public class App {
         f.setTitle("Drawing in Java");
         f.add(dc);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        f.setUndecorated(true);
         MyMouseListener mml = new MyMouseListener();
         f.addMouseListener(mml);
         f.setVisible(true);

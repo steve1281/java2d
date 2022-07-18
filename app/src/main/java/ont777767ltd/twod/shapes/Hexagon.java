@@ -26,9 +26,8 @@ public class Hexagon  extends MyPolygon {
             g2d.drawString(text, (int)x/2, (int)y);
         }
         if (hx0 != hx1) {
-            //g2d.drawRect(hx0, hy0, hx1, hy1);
-            g2d.drawRect(50, 50, 150, 150);
-            g2d.drawRect(0, 0, 100, 100);
+           g2d.setColor(Color.YELLOW);
+           g2d.drawRect(hx0, hy0, hx1, hy1);
         }
 
         if (isFilled()) {
